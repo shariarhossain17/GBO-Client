@@ -1,10 +1,11 @@
-import './App.css';
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import router from "./routes/router";
 
 function App() {
-  
   return (
-    <div className='bg-primaryBG h-[80vh]'>
-     <button className='bg-secondary2'>Dark</button>
+    <div>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }

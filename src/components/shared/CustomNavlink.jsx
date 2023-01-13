@@ -6,7 +6,7 @@ const CustomNavlink = ({ children, to }) => {
   const match = location.pathname === to;
 
   return (
-    <div className={match ? "bg-btnColor text-white px-2 py-1 rounded-md" : ""}>
+    <div className={match ? "bg-btnColor text-white px-2 py-1 rounded-md inline-block" : ""}>
       {/* {match ?  : ""} */}
       <Link to={to}>{children}</Link>
     </div>

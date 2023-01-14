@@ -12,6 +12,7 @@ module.exports = {
 
         //dark
         primaryBG: "#0F1629",
+        darkBgBtn: "#0284c7"
       },
     },
   },

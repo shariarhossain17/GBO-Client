@@ -5,6 +5,12 @@ const Theme = () => {
   const element = document.documentElement;
 
   useEffect(() => {
+    let currentTheme = localStorage.getItem("theme");
+    if (!currentTheme) currentTheme = "dark-theme";
+
+    element.classList.add(currentTheme)
+  }, []);
+  useEffect(() => {
     switch (theme) {
       case "dark":
         element.classList.add("dark");
@@ -18,7 +24,6 @@ const Theme = () => {
         break;
     }
   }, [theme]);
-
 
   return [theme, setTheme];
 };

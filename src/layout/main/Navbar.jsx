@@ -30,12 +30,25 @@ const Navbar = () => {
                 </h1>
               </div>
             </div>
-            <div>
+            <div className="flex items-center gap-6">
+            {theme === "dark" || theme === null ? (
+                <MdLightMode
+                  onClick={() => setTheme("light")}
+                  className="text-white h-5 w-5 md:hidden "
+                >
+                  Light
+                </MdLightMode>
+              ) : (
+                <MdOutlineDarkMode
+                  onClick={() => setTheme("dark")}
+                  className=" h-5 w-5 md:hidden"
+                ></MdOutlineDarkMode>
+              )}
               {!toggle ? (
-                <FiMenu className="md:hidden" onClick={handleToggle} />
+                <FiMenu className="md:hidden w-5 h-5 dark:text-white" onClick={handleToggle} />
               ) : (
                 <MdOutlineClose
-                  className="md:hidden"
+                  className="md:hidden w-5 h-5 dark:text-white"
                   onClick={() => setToggle(false)}
                 >
                   x
@@ -60,17 +73,17 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="flex items-center gap-4">
-              {theme === "dark" ? (
+              {theme === "dark" || theme === null ? (
                 <MdLightMode
                   onClick={() => setTheme("light")}
-                  className="text-white h-5 w-5"
+                  className="text-white h-5 w-5 hidden md:block"
                 >
                   Light
                 </MdLightMode>
               ) : (
                 <MdOutlineDarkMode
                   onClick={() => setTheme("dark")}
-                  className=" h-5 w-5"
+                  className=" h-5 w-5 hidden md:block"
                 ></MdOutlineDarkMode>
               )}
               <button className="bg-btnColor text-white px-2  py-1 rounded-full text-[14px] mt-4 md:mt-0 w-full md:w-14 dark:bg-darkBgBtn">

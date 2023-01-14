@@ -3,17 +3,17 @@ import { FiMenu } from "react-icons/fi";
 import { MdOutlineClose } from "react-icons/md";
 import logo from "../../assets/gbo_logo-removebg-preview.png";
 import CustomNavlink from "../../components/shared/CustomNavlink";
+import Theme from "../../customhook/Theme";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [theme, setTheme] = Theme();
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
 
   return (
-    <nav
-      className={`px-[5%] w-[100%] py-1 border-b`}
-    >
+    <nav className={`px-[5%] w-[100%] py-1 border-b dark:bg-zinc-900`}>
       <div className="">
         <div className="md:flex justify-between items-center">
           <div className="flex items-center justify-between">
@@ -59,9 +59,16 @@ const Navbar = () => {
                 <CustomNavlink to="/event">ইভেন্ট</CustomNavlink>
               </li>
             </ul>
-            <button className="bg-btnColor text-white px-2  py-1 rounded-full text-[14px] mt-4 md:mt-0 w-full md:w-14">
-              লগইন
-            </button>
+            <div>
+              <button className="bg-btnColor text-white px-2  py-1 rounded-full text-[14px] mt-4 md:mt-0 w-full md:w-14">
+                লগইন
+              </button>
+              {
+                theme === "dark" ? <button onClick={() => setTheme("light")} className="text-white">
+                Light
+              </button> : <button onClick={() => setTheme("dark")}>Dark</button>
+              }
+            </div>
           </div>
         </div>
       </div>
